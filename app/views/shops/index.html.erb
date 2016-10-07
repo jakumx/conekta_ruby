@@ -1,0 +1,102 @@
+<%= form_tag('/shops/create', id: 'card-form') do %>
+  <span class="card-errors" style="color:red;"></span>
+  <fieldset>
+    <legend>Datos Tarjeta</legend>
+    <div class="form-row">
+      <label>
+        <span>Nombre del tarjetahabiente</span>
+        <input type="text" size="20" name="name" data-conekta="card[name]"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <input type="hidden" name="currency" value="MXN">
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Número de tarjeta de crédito</span>
+        <input type="text" size="20" data-conekta="card[number]" maxlength="16" />
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>CVC</span>
+        <input type="text" size="4" data-conekta="card[cvc]" maxlength="4" />
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Fecha de expiración (MM/AAAA)</span>
+        <input type="text" size="2" data-conekta="card[exp_month]"/>
+      </label>
+      <span>/</span>
+      <input type="text" size="4" data-conekta="card[exp_year]"/>
+    </div>
+  </fieldset>
+<!-- Información recomendada para sistema antifraude -->
+  <fieldset>
+    <legend>Billing Address</legend>
+    <div class="form-row">
+      <label>
+        <span>Calle</span>
+        <input type="text" size="25" name="street1" data-conekta="card[address][street1]"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Colonia</span>
+        <input type="text" size="25" name="street2" data-conekta="card[address][street2]"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Ciudad</span>
+        <input type="text" size="25" name="city" data-conekta="card[address][city]"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>Estado</span>
+        <input type="text" size="25" name="state" data-conekta="card[address][state]"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>CP</span>
+        <input type="text" size="5" name="zip" data-conekta="card[address][zip]"/>
+      </label>
+    </div>
+    <div class="form-row">
+      <label>
+        <span>País</span>
+        <input type="text" size="25" name="country" data-conekta="card[address][country]"/>
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Info. General</legend>
+    <div class="form-row">
+      <label for="">
+        <span>Correo electronico</span>
+        <input type="email" name="email">
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label for="">
+        <span>Telefono</span>
+        <input type="phone" name="phone">
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label for="">
+        <span>Cantidad</span>
+      </label>
+      <input type="number" name="amount">
+    </div>
+  </fieldset>
+
+
+  <button style="float:right;" type="submit">¡Pagar ahora!</button>
+<% end %>

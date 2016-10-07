@@ -1,0 +1,12 @@
+<h1>Datos de tu compra</h1>
+
+<% if @charge %>
+  <h3><%= "El cargo por tu compra $ #{@charge.amount} #{@charge.currency} tiene un status #{@charge.status}" %></h3>
+  <p><%= @charge.inspect %></p>
+<% else %>
+  <p style="color:red;">
+    <%= @message %>
+  </p>
+<% end %>
+
+<%= link_to "Realizar otra compra", controller: "shops" %>
